@@ -15,12 +15,12 @@
   "editor.guides.bracketPairs": "active",
 
   //terminal
-  "terminal.integrated.fontFamily": "Fira Code",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
 
   //identation markdown
-  // "editor.renderWhitespace": "boundary",
+  "editor.renderWhitespace": "boundary",
   "workbench.colorCustomizations": {
-    // "editorIndentGuide.activeBackground": "#000",
+    "editorIndentGuide.activeBackground": "#ff0000",
     "editorIndentGuide.background": "#a5a5a7"
   },
 
@@ -30,10 +30,10 @@
 
   //visual
   "editor.fontSize": 18,
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Material Theme High Contrast",
+  "workbench.colorTheme": "GitHub Dark",
 
   //linting
   "editor.tabSize": 2,
@@ -73,5 +73,10 @@
 
   //other
   "git.openRepositoryInParentFolders": "never",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "prettier.singleQuote": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "redhat.telemetry.enabled": false
 }
