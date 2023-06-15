@@ -40,52 +40,26 @@ tar -cpzf $DESDIR/$FILENAME $SRCDIR
 ```
 It would run the script every two hours, so if you started the job at 00:00 AM, it would run again at 02:00 AM, then at 04:00 AM and so on.
 
-# i3-config (windows manager)
-Current i3 config. The most part of it is just the default configuration with some more installations:
-  - rofi: control the window selection with alt+tab shortcut.
-  - xfce4-appfinder: show all the applications installed in the system with $mod+q shortcut.
-  - feh: used to change the desktop wallpaper.
+# .config files
+Desktop configuration files for linux
 
-### Usage
-Install the following packages:
-  - i3-gaps
-  - i3-status
-  - dmenu
+### Needed packages
+
+  - alacrity
+    - alacritty-colorscheme
+  - zsh
+    - zsh-autosuggestion
+    - zsh-syntax-highlighting
+    - lf
+  - i3wm
+    - i3lock
+    - JetBrainsMono Nerd Font
+  - polybar
+    - pulseaudio
+    - pavucontrol
+    - playerctl
   - rofi
-  - xfce4-appfinder
-  - feh
- 
-The configuration path is located at: /home/*user*/.config/i3/.
-
-Changing the file and pressing $mod+shit+r should refresh the workspace.
-
-Obs.: The configured terimnal is gnome-terminal, so if do not have it installed, the terminal won't work.
-
-
-# Vimrc
-Current configuration for vim editor.
-
-Installed plugins:
- - https://github.com/itchyny/lightline.vim
- - https://github.com/itchyny/vim-gitbranch
- - https://github.com/tpope/vim-fugitive
- - https://github.com/tpope/vim-commentary
- - https://github.com/mg979/vim-visual-multi
- - https://github.com/sheerun/vim-polyglot
- - https://github.com/airblade/vim-gitgutter
- - https://github.com/neoclide/coc.nvim
- - https://github.com/ap/vim-buftabline
- - https://github.com/preservim/nerdtree
- - https://github.com/tpope/vim-surround
- - https://github.com/dikiaap/minimalist
- - https://github.com/ervandew/supertab
-
-### Usage
-Use https://github.com/junegunn/vim-plug package to be able to install all the plugins.
-
-Change the configuration file at: /home/*user*/.vimrc. Open vim, and run the command *:PlugInstall*. Once all the plugins are installed, it's ready for use.
-
-The shortcuts are the default of each package.
-
-# Vscode-settings
-Current visual-studio-code configuration file. You should be able to use it just overwriting your current settings.json and installing the respective plugins.
+    - rofi-calc
+    - Papirus icon theme
+  - spt (spotify-tui)
+    - spotifyd
