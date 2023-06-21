@@ -1,0 +1,13 @@
+require "rtxct.utils.bufferline"
+require "rtxct.utils.autopairs"
+require "rtxct.utils.comment"
+require "rtxct.utils.lualine"
+require "rtxct.utils.colorscheme"
+require "rtxct.utils.cmdline"
+require "rtxct.utils.toggleterm"
+require "rtxct.utils.indentline"
+require "rtxct.utils.colorizer"
+require "rtxct.utils.transparency"
+require "rtxct.utils.whichkey"
+require "rtxct.utils.dashboard"
+

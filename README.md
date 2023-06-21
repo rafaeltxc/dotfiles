@@ -40,8 +40,18 @@ tar -cpzf $DESDIR/$FILENAME $SRCDIR
 ```
 It would run the script every two hours, so if you started the job at 00:00 AM, it would run again at 02:00 AM, then at 04:00 AM and so on.
 
+# Vim/NeoVim
+
+Currently using NeoVim, so Vim configuration may be outdated, even though, after installing [vim-plug](https://github.com/junegunn/vim-plug) and runing the command *PlugInstall*, it should work nicely.
+
+For the NeoVim configuration, just oppening the editor after adding the files in the config directory, should do the trick, it will automaticaly install all the plugins and set them for you.
+
+Xclip or other clipboard package must be installed in order to use Neovim yanking and pasting.
+
+NeoVim configuration credits: [NeoVim-From-Scratch](https://github.com/LunarVim/Neovim-from-scratch)
+
 # .config files
-Desktop configuration files for linux
+Linux desktop configuration files
 
 ### Needed packages
 
@@ -53,6 +63,7 @@ Desktop configuration files for linux
     - lf
   - i3wm
     - i3lock
+    - xss-lock
     - JetBrainsMono Nerd Font
   - polybar
     - pulseaudio
