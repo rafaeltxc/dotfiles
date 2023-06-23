@@ -9,5 +9,4 @@ require "rtxct.utils.indentline"
 require "rtxct.utils.colorizer"
 require "rtxct.utils.transparency"
 require "rtxct.utils.whichkey"
-require "rtxct.utils.dashboard"
 

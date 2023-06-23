@@ -20,17 +20,38 @@ vim.g.maplocalleader = " "
 
 -- plugins (some of the plugins keymap will be on its own .lua file)
 -- PluginPacker
-keymap('n', '<leader>ps', '<cmd>PackerStatus<CR>', opts)
-keymap('n', '<leader>pS', '<cmd>PackerSync<CR>', opts)
-keymap('n', '<leader>pI', '<cmd>PackerInstall<CR>', opts)
-keymap('n', '<leader>pC', '<cmd>PackerClean<CR>', opts)
-keymap('n', '<leader>pU', '<cmd>PackerUpdate<CR>', opts)
+keymap('n', '<leader>ms', '<cmd>PackerStatus<CR>', opts)
+keymap('n', '<leader>mS', '<cmd>PackerSync<CR>', opts)
+keymap('n', '<leader>mI', '<cmd>PackerInstall<CR>', opts)
+keymap('n', '<leader>mC', '<cmd>PackerClean<CR>', opts)
+keymap('n', '<leader>mU', '<cmd>PackerUpdate<CR>', opts)
 -- Telescope
 keymap('n', '<leader>tt', '<cmd>Telescope<CR>', opts)
 keymap('n', '<leader>tc', '<cmd>Telescope current_buffer_fuzzy_find<CR>', opts)
 keymap('n', '<leader>tf', '<cmd>Telescope find_files<CR>', opts)
 keymap('n', '<leader>tg', '<cmd>Telescope git_files<CR>', opts)
 keymap('n', '<leader>td', '<cmd>Telescope diagnostics<CR>', opts)
+-- LspConfig
+keymap("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "<leader>gK", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "<leader>gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+keymap("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+-- Mason
+keymap('n', '<leader>el', '<cmd>Mason<CR>', opts)
+keymap('n', '<leader>eu', '<cmd>MasonUpdate<CR>', opts)
+-- NullLs
+keymap('n', '<leader>q', '<cmd>lua vim.lsp.bug.format()<CR>', opts)
 -- NvimTree
 keymap('n', '<leader>f', '<cmd>NvimTreeToggle<CR>', opts)
 -- Multi cursor
@@ -50,6 +71,7 @@ keymap('n', ':', '<cmd>FineCmdline<CR>', opts)
 keymap('n', 'dd', '"_dd', opts)
 -- Delete and insert mode without copy
 keymap('n', 'cc', '"_cc', opts)
+keymap('v', 'c', '"_c', opts)
 -- Delete word on CTRL + Backspace
 keymap('i', '<C-H>', '<C-W>', opts)
 -- Copy to clipboard

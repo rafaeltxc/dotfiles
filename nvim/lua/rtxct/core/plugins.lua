@@ -97,7 +97,6 @@ return packer.startup(function(use)
 
   -- UI
   use "folke/which-key.nvim" -- which key
-  use "nvimdev/dashboard-nvim" -- Welcome dashboard
   use "xiyaowong/transparent.nvim" -- terminal transparency
   use "norcalli/nvim-colorizer.lua" -- hex colorizing
   use "lukas-reineke/indent-blankline.nvim" -- indent line

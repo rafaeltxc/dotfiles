@@ -28,6 +28,10 @@ bufferline.setup {
     truncate_names = true, -- whether or not tab names should be truncated
     tab_size = 25,
     diagnostics = "nvim_lsp",
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        return "("..count.. ")"
+    end,
+    diagnostics_update_in_insert = true,
     offsets = {
       {
         filetype = "NvimTree",

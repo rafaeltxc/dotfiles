@@ -1,6 +1,7 @@
-
 local servers = {
-  "jsonls",
+	"lua_ls",
+	"jsonls",
+  "tsserver",
 }
 
 local settings = {
@@ -13,7 +14,7 @@ local settings = {
 		},
 	},
 	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 2,
+	max_concurrent_installers = 4,
 }
 
 local mason_status_ok, mason = pcall(require, "mason")
@@ -22,9 +23,9 @@ if not mason_status_ok then
   return
 end
 
-local mason_lspconfig_status_ok mason_lspconfig = pcall(require, "mason_lspconfig")
-if not mason_lspconfig_status_ok then
-  vim.notify("Could not load \"Mason LspConfig\" package")
+local masonlsp_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not masonlsp_status_ok then
+  vim.notify("Could not load \"mason-lspconfig\" package")
   return
 end
 
@@ -36,6 +37,7 @@ mason_lspconfig.setup({
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
+  vim.notify("Could not load \"LspConfig\" package")
 	return
 end
 
@@ -43,7 +45,7 @@ local opts = {}
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("rtxct.plugins.lsp.handlers").on_attach,
+		-- on_attach = require("rtxct.plugins.lsp.handlers").on_attach,
 		capabilities = require("rtxct.plugins.lsp.handlers").capabilities,
 	}
 
