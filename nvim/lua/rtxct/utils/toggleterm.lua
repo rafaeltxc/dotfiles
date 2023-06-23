@@ -5,7 +5,7 @@ if not toggleterm_status_ok then
 end
 
 toggleterm.setup {
-  shell = vim.o.shell,
+  shell = "zsh",
   hide_numbers = true,
   autochdir = false,
   close_on_exit = true,
