@@ -51,15 +51,15 @@ keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 keymap('n', '<leader>el', '<cmd>Mason<CR>', opts)
 keymap('n', '<leader>eu', '<cmd>MasonUpdate<CR>', opts)
 -- NullLs
-keymap('n', '<leader>q', '<cmd>lua vim.lsp.bug.format()<CR>', opts)
+keymap('n', '<leader>q', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 -- NvimTree
 keymap('n', '<leader>f', '<cmd>NvimTreeToggle<CR>', opts)
 -- Multi cursor
 vim.g.VM_maps = {
-  ['Select All']='<C-b>',
-  ['Find Under']='<C-n>',
-  ['Select Cursor Down']='<C-Down>',
-  ['Select Cursor Up']='<C-Up>'
+  ['Select All'] = '<C-b>',
+  ['Find Under'] = '<C-n>',
+  ['Select Cursor Down'] = '<C-Down>',
+  ['Select Cursor Up'] = '<C-Up>'
 }
 -- Bufferline
 keymap('n', '<leader>c', '<cmd>Bdelete<CR>', opts)
@@ -103,7 +103,7 @@ keymap("n", "<S-j>", ":m .+1<CR>==", opts)
 keymap("n", "<S-k>", ":m .-2<CR>==", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
@@ -130,4 +130,3 @@ keymap("x", "<S-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-

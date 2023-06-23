@@ -2,6 +2,7 @@ local servers = {
 	"lua_ls",
 	"jsonls",
   "tsserver",
+  "jdtls",
 }
 
 local settings = {
