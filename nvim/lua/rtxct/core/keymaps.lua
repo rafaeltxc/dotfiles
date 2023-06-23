@@ -50,8 +50,6 @@ keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 -- Mason
 keymap('n', '<leader>el', '<cmd>Mason<CR>', opts)
 keymap('n', '<leader>eu', '<cmd>MasonUpdate<CR>', opts)
--- NullLs
-keymap('n', '<leader>q', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 -- NvimTree
 keymap('n', '<leader>f', '<cmd>NvimTreeToggle<CR>', opts)
 -- Multi cursor
