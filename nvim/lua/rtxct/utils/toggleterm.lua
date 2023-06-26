@@ -7,7 +7,7 @@ end
 toggleterm.setup {
   shell = "zsh",
   hide_numbers = true,
-  autochdir = false,
+  autochdir = true,
   close_on_exit = true,
   open_mapping = [[<c-\>]],
   direction = 'float',
