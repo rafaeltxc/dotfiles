@@ -1,6 +1,21 @@
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '- ('$branch')'
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1='%B%F{white}%(4~|...|)%3~%F{cyan} > %b%f%k'
+PS1='%B%F{white}%(4~|...|) %3~%F{cyan} $(git_branch_name) > %b%f%k'
 
 # History in cache directory:
 HISTSIZE=10000
@@ -23,31 +38,9 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-bindkey "^H" backward-kill-word
-bindkey "^[[3~" delete-char
+bindkey '^H' backward-kill-word
+bindkey '^[[3~' delete-char
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -73,7 +66,34 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
+#  Aliases
 alias ls="ls --color=auto"
+alias spring="mvn spring-boot:run"
+
+# Create new maven project
+mvn_project () {
+  if [ "$1" != "" ] && [ "$2" != "" ]; then
+    mvn archetype:generate -DgroupId=$1 -DartifactId=$2 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
+  else
+    echo "Missing some of the arguments:\n1 - GroupId\n2 - ArtifactId";
+  fi
+}
+
+# Commit to github
+commit () {
+  git add .;
+  if [ "$1" != "" ]; then
+    git commit -m "$1";
+    if [ "$2" != ""]; then
+      git push origin $2;
+    else
+      git push;
+    fi
+  else
+    git reset .;
+    echo "Missing commit message.";
+  fi
+}
 
 # Load zsh-syntax-highlighting and suggestions; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
