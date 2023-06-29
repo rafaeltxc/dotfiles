@@ -68,7 +68,38 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 #  Aliases
 alias ls="ls --color=auto"
+alias refresh="source ~/.zshrc"
 alias spring="mvn spring-boot:run"
+
+# Create new java project
+javap () {
+  echo -n "Select project location (\".\" to create project in the same directory): ";
+  read LOCATION;
+  if [ $LOCATION != "." ]; then
+    cd $LOCATION;
+  fi
+
+  echo -n "Name of the project: ";
+  read NAME;
+  mkdir $NAME;
+
+  mkdir $NAME/src;
+  echo "module $NAME {}" >> $NAME/src/module-info.java;
+
+  mkdir $NAME/bin;
+  javac -d $NAME/bin $NAME/src/module-info.java;
+
+  BUILD="<project default=\"compile\">\n  <target name=\"compile\">\n   <javac srcdir=\"src\" destdir=\"bin\"/>\n  </target>\n</project>";
+  printf $BUILD >> $NAME/build.xml;
+
+  echo "Project $NAME has been created.";
+}
+
+# Compile and run maven project
+mvn_run () {
+  FILE="$(ls ./target | grep jar)";
+  mvn package && java -jar ./target/$FILE;
+}
 
 # Create new maven project
 mvn_project () {
