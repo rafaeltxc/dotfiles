@@ -86,13 +86,11 @@ javap () {
   mkdir $NAME/src;
   echo "module $NAME {}" >> $NAME/src/module-info.java;
 
-  mkdir $NAME/bin;
-  javac -d $NAME/bin $NAME/src/module-info.java;
-
-  BUILD="<project default=\"compile\">\n  <target name=\"compile\">\n   <javac srcdir=\"src\" destdir=\"bin\"/>\n  </target>\n</project>";
+  BUILD="<project default=\"compile\">\n  <target name=\"compile\">\n   <mkdir dir=\"bin\"/>\n   <javac srcdir=\"src\" destdir=\"bin\"/>\n  </target>\n</project>";
   printf $BUILD >> $NAME/build.xml;
 
-  echo "Project $NAME has been created.";
+  mkdir $NAME/classpath;
+  echo "Project \"$NAME\" has been created.";
 }
 
 # Compile and run maven project
