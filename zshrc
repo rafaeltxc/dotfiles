@@ -39,8 +39,13 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
+# Keymap fix (Normal use of the shortcuts)
 bindkey '^H' backward-kill-word
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
 bindkey '^[[3~' delete-char
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -122,6 +127,29 @@ commit () {
     git reset .;
     echo "Missing commit message.";
   fi
+}
+
+get() {
+  curl http://localhost:$1/$2;
+}
+
+post() {
+  curl --header "Content-Type: application/json" \
+    --request POST \
+    --data "$1" \
+    http://localhost:$2/$3
+}
+
+update() {
+  curl --header "Content-Type: application/json" \
+    --request UPDATE \
+    --data "$1" \
+    http://localhost:$2/$3
+}
+
+delete() {
+  curl --request DELETE \
+    http://localhost:$1/$2
 }
 
 # Load zsh-syntax-highlighting and suggestions; should be last.
