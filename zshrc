@@ -119,11 +119,7 @@ commit () {
   git add .;
   if [ "$1" != "" ]; then
     git commit -m "$1";
-    if [ "$2" != ""]; then
-      git push origin $2;
-    else
-      git push;
-    fi
+    git push;
   else
     git reset .;
     echo "Missing commit message.";
