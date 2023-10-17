@@ -21,6 +21,7 @@ PS1='%B%F{white}%(4~|...|) %3~%F{cyan} $(git_branch_name) > %b%f%k'
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+setopt share_history
 
 # Basic auto/tab complete:
 autoload -U compinit

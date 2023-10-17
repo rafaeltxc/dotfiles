@@ -1,6 +1,6 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-  vim.notify("Could not load \"NullLs\" package")
+	vim.notify('Could not load "NullLs" package')
 	return
 end
 
@@ -12,9 +12,9 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-    formatting.stylua,
+		formatting.stylua,
 		formatting.prettier,
-    formatting.eslint,
-    formatting.google_java_format,
+		formatting.eslint,
+		formatting.google_java_format,
 	},
 })
