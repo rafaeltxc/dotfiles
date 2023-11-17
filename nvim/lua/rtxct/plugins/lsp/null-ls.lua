@@ -16,5 +16,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.eslint,
 		formatting.google_java_format,
+		formatting.beautysh,
+		formatting.xmlformat,
 	},
 })

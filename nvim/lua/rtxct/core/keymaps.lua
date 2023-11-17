@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- plugins (some of the plugins keymap will be on its own .lua file)
+-- plugins (some of the plugins keymap will be on its own lua file)
 -- PluginPacker
 keymap('n', '<leader>ms', '<cmd>PackerStatus<CR>', opts)
 keymap('n', '<leader>mS', '<cmd>PackerSync<CR>', opts)
@@ -65,8 +65,6 @@ keymap('n', '<leader>c', '<cmd>Bdelete<CR>', opts)
 keymap('n', ':', '<cmd>FineCmdline<CR>', opts)
 
 -- Custom  --
--- Delete line without copy
-keymap('n', 'dd', '"_dd', opts)
 -- Delete and insert mode without copy
 keymap('n', 'cc', '"_cc', opts)
 keymap('v', 'c', '"_c', opts)

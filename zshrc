@@ -73,6 +73,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 #  Aliases
+alias nv="nvim ."
 alias ls="ls --color=auto"
 alias refresh="source ~/.zshrc"
 alias spring="mvn spring-boot:run"
@@ -116,8 +117,16 @@ mvn_project () {
 
 # Commit to github
 commit () {
+  if [ "$1" = "--help" ]; then
+    echo "Usage: commit 'commit_message' 'commit_description'"
+    return
+  fi
+
   git add .;
-  if [ "$1" != "" ]; then
+  if [ -n "$1" ] && [ -n "$2" ]; then
+    git commit -m "$1" -m "$2";
+    git push;
+  elif [ -n "$1" ]; then
     git commit -m "$1";
     git push;
   else
