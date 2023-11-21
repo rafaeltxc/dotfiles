@@ -20,17 +20,18 @@ vim.g.maplocalleader = " "
 
 -- plugins (some of the plugins keymap will be on its own lua file)
 -- PluginPacker
-keymap('n', '<leader>ms', '<cmd>PackerStatus<CR>', opts)
-keymap('n', '<leader>mS', '<cmd>PackerSync<CR>', opts)
-keymap('n', '<leader>mI', '<cmd>PackerInstall<CR>', opts)
-keymap('n', '<leader>mC', '<cmd>PackerClean<CR>', opts)
-keymap('n', '<leader>mU', '<cmd>PackerUpdate<CR>', opts)
+keymap("n", "<leader>ms", "<cmd>PackerStatus<CR>", opts)
+keymap("n", "<leader>mS", "<cmd>PackerSync<CR>", opts)
+keymap("n", "<leader>mI", "<cmd>PackerInstall<CR>", opts)
+keymap("n", "<leader>mC", "<cmd>PackerClean<CR>", opts)
+keymap("n", "<leader>mU", "<cmd>PackerUpdate<CR>", opts)
 -- Telescope
-keymap('n', '<leader>tt', '<cmd>Telescope<CR>', opts)
-keymap('n', '<leader>tc', '<cmd>Telescope current_buffer_fuzzy_find<CR>', opts)
-keymap('n', '<leader>tf', '<cmd>Telescope find_files<CR>', opts)
-keymap('n', '<leader>tg', '<cmd>Telescope git_files<CR>', opts)
-keymap('n', '<leader>td', '<cmd>Telescope diagnostics<CR>', opts)
+keymap("n", "<leader>tl", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>tt", "<cmd>Telescope<CR>", opts)
+keymap("n", "<leader>tc", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<leader>tf", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>Telescope git_files<CR>", opts)
+keymap("n", "<leader>td", "<cmd>Telescope diagnostics<CR>", opts)
 -- LspConfig
 keymap("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -48,34 +49,34 @@ keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 -- Mason
-keymap('n', '<leader>el', '<cmd>Mason<CR>', opts)
-keymap('n', '<leader>eu', '<cmd>MasonUpdate<CR>', opts)
+keymap("n", "<leader>el", "<cmd>Mason<CR>", opts)
+keymap("n", "<leader>eu", "<cmd>MasonUpdate<CR>", opts)
 -- NvimTree
-keymap('n', '<leader>f', '<cmd>NvimTreeToggle<CR>', opts)
+keymap("n", "<leader>f", "<cmd>NvimTreeToggle<CR>", opts)
 -- Multi cursor
 vim.g.VM_maps = {
-  ['Select All'] = '<C-b>',
-  ['Find Under'] = '<C-n>',
-  ['Select Cursor Down'] = '<C-Down>',
-  ['Select Cursor Up'] = '<C-Up>'
+	["Select All"] = "<C-b>",
+	["Find Under"] = "<C-n>",
+	["Select Cursor Down"] = "<C-Down>",
+	["Select Cursor Up"] = "<C-Up>",
 }
 -- Bufferline
-keymap('n', '<leader>c', '<cmd>Bdelete<CR>', opts)
+keymap("n", "<leader>c", "<cmd>Bdelete<CR>", opts)
 -- FineCmdline
-keymap('n', ':', '<cmd>FineCmdline<CR>', opts)
+keymap("n", ":", "<cmd>FineCmdline<CR>", opts)
 
 -- Custom  --
 -- Delete and insert mode without copy
-keymap('n', 'cc', '"_cc', opts)
-keymap('v', 'c', '"_c', opts)
+keymap("n", "cc", '"_cc', opts)
+keymap("v", "c", '"_c', opts)
 -- Delete word on CTRL + Backspace
-keymap('i', '<C-H>', '<C-W>', opts)
+keymap("i", "<C-H>", "<C-W>", opts)
 -- Copy to clipboard
-keymap('n', '<leader>y', '"+y', opts)
-keymap('v', '<leader>y', '"+y', opts)
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
 -- Paste from clipboard
-keymap('n', '<leader>p', '"+p', opts)
-keymap('v', '<leader>p', '"+p', opts)
+keymap("n", "<leader>p", '"+p', opts)
+keymap("v", "<leader>p", '"+p', opts)
 
 -- Normal --
 -- Better window navigation

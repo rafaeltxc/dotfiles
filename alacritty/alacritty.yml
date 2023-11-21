@@ -33,7 +33,7 @@ import:
 cursor:
   style:
     shape: Block
-    blinking: on
+    blinking: Off
 
 shell:
   program: /usr/bin/zsh
