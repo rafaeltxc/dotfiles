@@ -77,6 +77,8 @@ keymap("v", "<leader>y", '"+y', opts)
 -- Paste from clipboard
 keymap("n", "<leader>p", '"+p', opts)
 keymap("v", "<leader>p", '"+p', opts)
+-- Clean filter
+keymap("n", "<leader>r", "<cmd>noh<CR>", opts)
 
 -- Normal --
 -- Better window navigation
