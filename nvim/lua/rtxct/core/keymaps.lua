@@ -79,6 +79,9 @@ keymap("n", "<leader>p", '"+p', opts)
 keymap("v", "<leader>p", '"+p', opts)
 -- Clean filter
 keymap("n", "<leader>r", "<cmd>noh<CR>", opts)
+-- New Workspace
+keymap("n", "<leader>wv", "<cmd>vsp<CR>", opts)
+keymap("n", "<leader>wh", "<cmd>sp<CR>", opts)
 
 -- Normal --
 -- Better window navigation

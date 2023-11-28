@@ -13,7 +13,7 @@ toggleterm.setup({
 	direction = "float",
 	float_opts = {
 		border = "curved",
-		width = 60,
+		width = 120,
 		height = 20,
 	},
 })
