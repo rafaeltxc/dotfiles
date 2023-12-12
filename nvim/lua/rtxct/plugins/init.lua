@@ -1,6 +1,0 @@
-require "rtxct.plugins.lsp"
-require "rtxct.plugins.cmp"
-require "rtxct.plugins.telescope"
-require "rtxct.plugins.nvim-tree"
-require "rtxct.plugins.treesitter"
-require "rtxct.plugins.gitsigns"
