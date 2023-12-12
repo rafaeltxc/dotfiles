@@ -60,6 +60,8 @@ bindkey "^[[1;5D" backward-word
 #  Aliases
 alias nv="nvim ."
 alias ls="ls --color=auto"
+alias ll="ls -l --color=auto"
+alias la="ls -a --color=auto"
 alias refresh="source ~/.zshrc"
 alias lg="lazygit"
 
@@ -113,14 +115,14 @@ mvn_project () {
 }
 
 # Commit to github
-commit () {
+commit() {
     if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-        echo "Usage: commit 'commit_message' 'commit_description'"
+        echo "Usage: commit 'message' 'description'"
         return
     fi
 
+    git add .;
     if [ -n "$1" ] && [ -n "$2" ]; then
-        git add .;
         git commit -m "$1" -m "$2";
         git push;
     elif [ -n "$1" ]; then
