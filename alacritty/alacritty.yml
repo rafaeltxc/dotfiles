@@ -14,17 +14,17 @@ scrolling:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style:  Regular
+    style: Regular
   bold:
     family: JetBrainsMono Nerd Font
-    style:  Bold
+    style: Bold
   italic:
     family: JetBrainsMono Nerd Font
-    style:  Italic
+    style: Italic
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 10
+  size: 11
 draw_bold_text_with_bright_colors: true
 
 import:
