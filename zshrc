@@ -1,8 +1,4 @@
 # CONFIGURATION
-# Enable colors and change prompt
-autoload -U colors && colors
-PS1='%B%F{white}%(4~|...|) %3~%F{cyan} $(git_branch_name) > %b%f%k'
-
 # Find and set branch name var if in git repository
 function git_branch_name()
 {
@@ -14,6 +10,10 @@ function git_branch_name()
         echo '- ('$branch')'
     fi
 }
+
+# Enable colors and change prompt
+autoload -U colors && colors
+PS1='%B%F{white}%(4~|...|) %3~%F{cyan} $(git_branch_name) > %b%f%k'
 
 # Enable substitution in the prompt.
 setopt prompt_subst
@@ -53,19 +53,24 @@ bindkey '^[[3~' delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
-
 #  Aliases
+# Misc
 alias nv="nvim ."
-alias ls="ls --color=auto"
-alias ll="ls -l --color=auto"
-alias la="ls -a --color=auto"
 alias refresh="source ~/.zshrc"
 alias lg="lazygit"
 alias pdf="mupdf"
 alias cl="clear"
+
+# Better listing
+alias ls="ls --color=auto"
+alias ll="ls -l --color=auto"
+alias la="ls -a --color=auto"
+
+# Tmux
+alias tn="tmux new"
+alias ta="tmux attach"
+alias td="tmux detach"
+alias tl="tmux ls"
 
 # CUSTOM FUNCTIONS
 # Use lf to switch directories and bind it to ctrl-o
@@ -79,6 +84,18 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+# fzf
+fuzzy () {
+    VAR=$(find "$HOME" | fzf)
+
+    if [[ -d $VAR ]]; then
+        cd "$VAR"
+    elif [[ -f $VAR ]]; then
+      (nvim "$VAR")
+    fi
+}
+bindkey -s "^F" "fuzzy\n"
 
 # Create new java project
 java_p () {
