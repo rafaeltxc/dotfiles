@@ -133,15 +133,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -m 'You pressed the exit shortcut. Do you r
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym l resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym j resize shrink height 5 px or 5 ppt
-        bindsym h resize grow width 5 px or 5 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
 
-        bindsym Right resize shrink width 5 px or 5 ppt
-        bindsym Up resize grow height 5 px or 5 ppt
-        bindsym Down resize shrink height 5 px or 5 ppt
-        bindsym Left resize grow width 5 px or 5 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -155,16 +155,19 @@ gaps inner 7
 gaps outer 5
 
 
+hide_edge_borders smart_no_gaps
 default_border pixel 1
 default_floating_border pixel 1
+# smart_gaps on
+# smart_borders on
 
 # Colors
 # class                 border  backgr. text indicator child_border
 client.focused          #ffffff2E #2D2A2E #7c7d7c #2D2A2E #ffffff2E
-client.focused_inactive #00000000 #2D2A2E #7c7d7c #2D2A2E #00000000
-client.unfocused        #00000000 #171717 #7c7d7c #2D2A2E #00000000
-client.urgent           #00000000 #bfbfbf #000000 #2D2A2E #00000000
-client.placeholder      #00000000 #2D2A2E #7c7d7c #2D2A2E #00000000
+client.focused_inactive #000000ff #2D2A2E #7c7d7c #2D2A2E #00000000
+client.unfocused        #000000ff #171717 #7c7d7c #2D2A2E #00000000
+client.urgent           #000000ff #bfbfbf #000000 #2D2A2E #00000000
+client.placeholder      #000000ff #2D2A2E #7c7d7c #2D2A2E #00000000
 
 # Misc
 focus_follows_mouse no

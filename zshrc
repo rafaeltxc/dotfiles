@@ -64,6 +64,8 @@ alias ll="ls -l --color=auto"
 alias la="ls -a --color=auto"
 alias refresh="source ~/.zshrc"
 alias lg="lazygit"
+alias pdf="mupdf"
+alias cl="clear"
 
 # CUSTOM FUNCTIONS
 # Use lf to switch directories and bind it to ctrl-o
