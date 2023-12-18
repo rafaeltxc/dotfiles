@@ -22,10 +22,10 @@ local M = {
       update_in_insert = true,
       virtual_text = false,
       --[[ virtual_text = {
-				spacing = 2,
-				source = "if_many",
-				prefix = "",
-			}, ]]
+        spacing = 2,
+        source = "if_many",
+        prefix = "",
+      }, ]]
       float = {
         focusable = true,
         style = "minimal",
@@ -99,13 +99,6 @@ local M = {
         local server_opts = {
           handlers = handlers,
           capabilities = vim.deepcopy(capabilities),
-          on_attach = function(client, bufnr)
-            if opts.inlay_hints.enabled then
-              if client.server_capabilities.inlayHintProvider then
-                vim.lsp.inlay_hint.enable(bufnr, true)
-              end
-            end
-          end,
         }
 
         local require_ok, custom_opts = pcall(require, "rtxct.plugins.lsp.settings." .. server)
