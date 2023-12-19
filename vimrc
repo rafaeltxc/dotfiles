@@ -1,129 +1,111 @@
-:set nocompatible
-filetype off
+" Options
+set cmdheight=1
+set clipboard=unnamedplus
+set encoding=utf-8
+set hlsearch
+set ignorecase
+set incsearch
+set hlsearch
+set mouse-=a
+set mousemoveevent
+set pumheight=10
+set showmode
+set showtabline=1
+set smartcase
+set smartindent
+set splitbelow
+set splitright
+set termguicolors
+" set timeout
+" set timeoutlen=200
+set undofile
+set updatetime=300
+set writebackup
+set expandtab
+set shiftwidth=2
+set autoindent
+set tabstop=2
+set number
+set relativenumber
+set numberwidth=2
+set signcolumn=no
+set linebreak
+set scrolloff=15
+set sidescrolloff=8
+set whichwrap=bs<>[]hl
+set laststatus=0
+set tabline=%t
+set foldcolumn=0
 
-" indentation
-:set autoindent
-:set shiftwidth=4
-:set smarttab
-:set tabstop=4
-:set expandtab
-let g:SuperTabDefaultCompletionType = 'context'
+" Plugins
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" searchOptions
-:set hlsearch
-:set ignorecase
-:set incsearch
-:set smartcase
+call plug#begin()
 
-" textRendering
-syntax enable
-:set encoding=utf-8
-:set spelllang=en_us
-:set wrap
-:set linebreak
-:set wildmenu
-:set showcmd
-:set showmatch
+Plug 'tribela/vim-transparent'
+Plug 'sts10/vim-pink-moon'
+Plug 'tpope/vim-commentary'
+Plug 'mg979/vim-visual-multi'
+Plug 'sheerun/vim-polyglot'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jiangmiao/auto-pairs'
 
-" interfaceOptions
-:set mouse=c
-:set number
-:set noerrorbells
-:set title
-:set background=dark
+call plug#end()
 
-" miscelaneous
-:set scrolloff=10
-:set history=1000
-:set undolevels=1000
-:set ruler
-nnoremap <f12> :nohlsearch<CR>
+colorscheme pink-moon
 
-" spell highlight
-hi SpellBad cterm=underline,bold ctermbg=none ctermfg=none
-hi Cursor cterm=underline ctermbg=none ctermfg=none
-highlight GitGutterAdd    guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
-" line extra spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-    match ExtraWhitespace /\s\+$/
+" Set the leader key
+let g:mapleader = " "
 
-" calling plugins
-call plug#begin('~/.vim/plugged')
+" Explorer
+nnoremap <Leader>f :Explore<CR>
+nnoremap <Leader>q :Rex<CR>
 
-" Declare the list of plugins.
-Plug 'mbbill/undotree' " undo history
-Plug 'itchyny/lightline.vim' " status line
-Plug 'itchyny/vim-gitbranch' " gitBranch
-Plug 'tpope/vim-fugitive' " add git commands
-Plug 'tpope/vim-commentary' " comment command
-Plug 'mg979/vim-visual-multi', {'branch': 'master'} " multicursor
-Plug 'sheerun/vim-polyglot' " vim languages
-Plug 'airblade/vim-gitgutter' " git diff
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-html coc-pyright coc-java coc-sql docker-langserver'} " auto completion
-Plug 'ap/vim-buftabline' " tabs control
-Plug 'preservim/nerdtree' " system explorer
-Plug 'tpope/vim-surround' " word surround
-Plug 'dikiaap/minimalist' " colorScheme
-Plug 'ervandew/supertab' "superTab      
+" Resize with arrows
+nnoremap <C-Up> :resize -2<CR>
+nnoremap <C-Down> :resize +2<CR>
+nnoremap <C-Left> :vertical resize -2<CR>
+nnoremap <C-Right> :vertical resize +2<CR>
 
-" List ends here. Plugins become visible to Vim after this call.
-call plug#end()     
-     
-colorscheme minimalist
-     
-" pluginSettings     
-     
-if has("persistent_undo")
-   let target_path = expand('~/.undodir')
+" Navigate buffers
+nnoremap <S-l> :bnext<CR>
+nnoremap <S-h> :bprevious<CR>
 
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(target_path)
-        call mkdir(target_path, "undodir", 0700)
-    endif
-    let &undodir=target_path
-    set undofile
-endif     
-" status line     
-:set t_Co=256     
-:set laststatus=2    
-:set noshowmode     
-     
-let g:lightline = {  
-      \ 'colorscheme': 'wombat',
-	  \     
-      \ 'active': {  
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },     
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },     
-      \ }     
-" auto comment     
-autocmd Filetype html setlocal commentstring=<!--%s-->
-autocmd Filetype python setlocal commentstring="""%s"""
-autocmd Filetype java setlocal commentstring=/*%s*/
-" undoTree      
-nnoremap <F3> :UndotreeToggle<CR>
-" coc
-" remove new line when tab selection autocomplete
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
-inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ <SID>check_back_space() ? "\<Tab>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" buf tab
-:set hidden
-nnoremap <C-L> :bnext<CR>
-nnoremap <C-H> :bprev<CR>
-" nerdtree       
-nnoremap <F2> :NERDTreeToggle<CR>
-      
+" Move text up and down
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+
+" Insert
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Visual
+vnoremap < <gv
+vnoremap > >gv
+vnoremap <S-j> :m .+1<CR>==
+vnoremap <S-k> :m .-2<CR>==
+vnoremap p "_dP
+
+" Visual Block
+xnoremap J :move '>+0<CR>gv-gv
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap <S-j> :move '>+1<CR>gv-gv
+xnoremap <S-k> :move '<-2<CR>gv-gv
+
+" Custom Keymaps
+nnoremap cc "_cc
+vnoremap c "_c
+
+" Delete word on CTRL + Backspace
+inoremap <C-H> <C-W>
+
+" Clear filter
+nnoremap <leader>r :noh<CR>
+
+" New Workspace
+nnoremap <leader>wv :vsp<CR>
+nnoremap <leader>wh :sp<CR>
