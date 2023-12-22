@@ -20,9 +20,8 @@ local M = {
     vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end, { desc = "Append to list" })
 
     vim.keymap.set("n", "<C-y>", function() harpoon:list():select(1) end)
-    vim.keymap.set("n", "<C-u>", function() harpoon:list():select(2) end)
-    vim.keymap.set("n", "<C-i>", function() harpoon:list():select(3) end)
-    vim.keymap.set("n", "<C-o>", function() harpoon:list():select(4) end)
+    vim.keymap.set("n", "<C-i>", function() harpoon:list():select(2) end)
+    vim.keymap.set("n", "<C-o>", function() harpoon:list():select(3) end)
   end
 }
 
