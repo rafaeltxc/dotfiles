@@ -20,7 +20,6 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
 
 # fzf
 fuzzy () {
@@ -32,7 +31,6 @@ fuzzy () {
       (nvim "$VAR")
     fi
 }
-bindkey -s "^F" "fuzzy\n"
 
 # Activate Venv
 venv () {

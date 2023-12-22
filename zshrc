@@ -1,8 +1,8 @@
-#  Shortcuts
-source ~/.config/zsh/shortcuts.zsh
-
 # Custom functions
 source ~/.config/zsh/functions.zsh
+
+#  Shortcuts
+source ~/.config/zsh/shortcuts.zsh
 
 # Enable colors and change prompt
 autoload -U colors && colors
@@ -45,6 +45,10 @@ bindkey  "^[[F"   end-of-line
 bindkey '^[[3~' delete-char
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Custom Function calls
+bindkey -s '^o' 'lfcd\n'
+bindkey -s '^F' 'fuzzy\n'
 
 # Load zsh-syntax-highlighting and suggestions; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
