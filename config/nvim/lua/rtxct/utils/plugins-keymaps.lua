@@ -49,7 +49,7 @@ local M = {
     c = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Current Buffer", opts },
     l = { "<cmd>Telescope live_grep<cr>", "Live grep", opts },
     b = { "<cmd>Telescope buffers<cr>", "Active buffers", opts },
-    e = { "<cmd>Telescope env<cr>", "System env", opts }
+    e = { "<cmd>Telescope env<cr>", "System env", opts },
   },
 
 -- Spectre

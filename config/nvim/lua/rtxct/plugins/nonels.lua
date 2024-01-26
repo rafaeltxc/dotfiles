@@ -26,6 +26,7 @@ local M = {
         formatting.eslint,
         formatting.sql_formatter,
         formatting.yamlfmt,
+        formatting.autoflake,
       },
     })
   end,

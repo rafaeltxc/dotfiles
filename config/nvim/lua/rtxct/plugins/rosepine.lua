@@ -5,44 +5,52 @@ local M = {
 	lazy = false,
 	priority = 1000,
 	opts = {
-		--- @usage 'main'|'moon'|'dawn'
-		variant = "main",
-		dark_variant = "main",
-		bold_vert_split = false,
-		dim_nc_background = false,
-		disable_background = true,
-		disable_float_background = true,
-		disable_italics = false,
+		variant = "main", -- auto, main, moon, or dawn
+		dark_variant = "main", -- main, moon, or dawn
+		dim_inactive_windows = false,
+		extend_background_behind_borders = true,
 
-		--- @usage string hex value or named color from rosepinetheme.com/palette
+		enable = {
+			terminal = true,
+			legacy_highlights = true,
+			migrations = true,
+		},
+
+		styles = {
+			bold = true,
+			italic = true,
+			transparency = true,
+		},
+
 		groups = {
-			background = "base",
-			background_nc = "base",
-			panel = "None",
-			panel_nc = "base",
-			border = "highlight_med",
-			comment = "muted",
+			border = "muted",
 			link = "iris",
-			punctuation = "None",
+			panel = "surface",
 
 			error = "None",
 			hint = "None",
 			info = "None",
+			note = "None",
+			todo = "None",
 			warn = "None",
 
-			headings = {
-				h1 = "iris",
-				h2 = "foam",
-				h3 = "rose",
-				h4 = "gold",
-				h5 = "pine",
-				h6 = "foam",
-			},
-			highlight_groups = {
-				DiagnosticSign = {
-					bg = "None",
-				},
-			},
+			git_add = "foam",
+			git_change = "rose",
+			git_delete = "love",
+			git_dirty = "rose",
+			git_ignore = "muted",
+			git_merge = "iris",
+			git_rename = "pine",
+			git_stage = "iris",
+			git_text = "rose",
+			git_untracked = "subtle",
+
+			h1 = "iris",
+			h2 = "foam",
+			h3 = "rose",
+			h4 = "gold",
+			h5 = "pine",
+			h6 = "foam",
 		},
 	},
 

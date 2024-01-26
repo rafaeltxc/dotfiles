@@ -15,6 +15,7 @@ local M = {
   "lemminx",
   "yamlls",
   "eslint",
+  "pylsp",
 }
 
 return M
