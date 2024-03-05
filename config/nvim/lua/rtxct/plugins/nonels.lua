@@ -3,6 +3,7 @@ local M = {
   event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "nvimtools/none-ls-extras.nvim",
   },
 
   config = function()
@@ -14,19 +15,17 @@ local M = {
       border = "rounded",
       debug = true,
       sources = {
-        -- Diagnostics
-        diagnostics.eslint,
+        -- Some plugins have been deprecated and will need to be used with none-ls-extras, as being used down below.
+        require("none-ls.formatting.eslint"),
+        require("none-ls.diagnostics.eslint"),
 
         -- Formatters
         formatting.stylua,
         formatting.google_java_format,
         formatting.clang_format,
-        formatting.beautysh,
-        formatting.prettier,
-        formatting.eslint,
+        -- formatting.prettier,
         formatting.sql_formatter,
         formatting.yamlfmt,
-        formatting.autoflake,
       },
     })
   end,
