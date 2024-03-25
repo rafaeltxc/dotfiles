@@ -44,7 +44,7 @@ local M = {
 -- Telescope
   t = {
     name = "Telescope",
-    t = { "<cmd>Telescope<CR>", "Find files", opts },
+    t = { "<cmd>Telescope<CR>", "Telescope", opts },
     f = { "<cmd>Telescope find_files<CR>", "Find files", opts },
     c = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Current Buffer", opts },
     l = { "<cmd>Telescope live_grep<cr>", "Live grep", opts },
