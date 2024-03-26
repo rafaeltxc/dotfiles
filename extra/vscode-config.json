@@ -1,0 +1,74 @@
+{
+  //Clock (Date & Time)
+  "dateTime.showOnStartup": true,
+
+  //Date
+  "dateTime.showDayOfMonth": true,
+  "dateTime.showMonth": true,
+  "dateTime.showDayOfWeek": true,
+
+  //ClockConfigs
+  "dateTime.use24HourClock": true,
+  "dateTime.showAMPM": true,
+  "dateTime.showSeconds": true,
+
+  //bracketPairs colorized
+  // "editor.bracketPairColorization.enabled": true,
+  // "editor.guides.bracketPairs": "active",
+
+  //terminal
+  "terminal.integrated.fontFamily": "Fira Code",
+
+  //vim settings
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+
+  //indentation markdown
+  "editor.renderWhitespace": "all",
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.activeBackground1": "#ff0000",
+    "editorIndentGuide.background1": "#a5a5a7"
+  },
+
+  //syntax correction (Tabine)
+  "editor.inlineSuggest.enabled": true,
+  "tabnine.experimentalAutoImports": true,
+
+  //visual
+  "editor.fontSize": 18,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Tokyo Night",
+
+  //linting
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "[jsonc]": {
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.ignoreUntitled": true,
+  "eslint.codeActionsOnSave.rules": [],
+
+  //other
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.startupEditor": "none",
+  "window.zoomLevel": 1,
+  "cmake.options.statusBarVisibility": "visible"
+}
