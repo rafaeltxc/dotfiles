@@ -1,0 +1,83 @@
+" Options
+set cmdheight=1
+set clipboard=unnamedplus
+set encoding=utf-8
+set hlsearch
+set ignorecase
+set incsearch
+set hlsearch
+set mouse=a
+set mousemoveevent
+set pumheight=10
+set showmode
+set showtabline=1
+set smartcase
+set smartindent
+set splitbelow
+set splitright
+set termguicolors
+set undofile
+set updatetime=300
+set writebackup
+set expandtab
+set shiftwidth=2
+set autoindent
+set tabstop=2
+set number
+set relativenumber
+set numberwidth=2
+set signcolumn=no
+set linebreak
+set scrolloff=15
+set sidescrolloff=8
+set whichwrap=bs<>[]hl
+set laststatus=0
+set tabline=%t
+set foldcolumn=0
+
+" Set the leader key
+let g:mapleader = " "
+
+" Explorer
+nnoremap <Leader>f :NERDTreeToggle<CR>
+
+" Navigate buffers
+nnoremap <S-l> :bnext<CR>
+nnoremap <S-h> :bprevious<CR>
+
+" Move text up and down
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+
+" Insert
+inoremap jk <ESC>
+inoremap kj <ESC>
+
+" Visual
+vnoremap < <gv
+vnoremap > >gv
+vnoremap <S-j> :m .+1<CR>==
+vnoremap <S-k> :m .-2<CR>==
+vnoremap p "_dP
+
+xnoremap J :move '>+0<CR>gv-gv
+xnoremap <S-j> :move '>+1<CR>gv-gv
+" Visual Block
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap <S-k> :move '<-2<CR>gv-gv
+
+" Custom Keymaps
+nnoremap cc "_cc
+vnoremap c "_c
+
+" Clear filter
+nnoremap <leader>r :noh<CR>
+
+" New Workspace
+nnoremap <leader>wv :vsp<CR>
+nnoremap <leader>wh :sp<CR>
+
+" --- Enable IeaVim plugins https://jb.gg/ideavim-plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
