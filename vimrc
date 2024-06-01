@@ -87,6 +87,9 @@ colorscheme nord
 " Set the leader key
 let g:mapleader = " "
 
+" Execute current file
+nnoremap <leader>e :!%:p
+
 " Resize with arrows
 nnoremap <C-S-Up> :resize +2<CR>
 nnoremap <C-S-Down> :resize -2<CR>

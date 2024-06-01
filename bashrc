@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export MASON=/home/rtxct/.local/share/nvim/mason
-
 # Bash functions
 source ~/.config/bash/functions.bash
 
