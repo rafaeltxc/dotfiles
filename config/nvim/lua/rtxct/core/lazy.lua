@@ -12,24 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({{import = "rtxct.plugins"}, {import = "rtxct.plugins.lsp"}}, {
-  --[[ install = {
-    colorscheme = { "rose-pine" },
-  }, ]]
   defaults = {
     lazy = true,
     version = "*",
     cond = true,
   },
   checker = {
-    enabled = true,
-    concurrency = 1,
-    notify = true,
-    frequency = 86400,
+    enabled = false,
+    notify = false,
     check_pinned = false,
   },
   change_detection = {
-    enabled = true,
-    notify = true,
+    enabled = false,
   },
   build = {
     warn_on_override = true,

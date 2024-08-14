@@ -1,0 +1,22 @@
+local M = {
+  "nvim-neotest/neotest",
+  event = "VeryLazy",
+  lazy = true,
+  dependencies = {
+    "nvim-neotest/nvim-nio",
+    "nvim-lua/plenary.nvim",
+    "antoinemadec/FixCursorHold.nvim",
+    "nvim-treesitter/nvim-treesitter"
+  },
+	name = "neotest",
+  opts = {
+  },
+
+  config = function(_, opts)
+    local ap = require("neotest")
+
+    ap.setup(opts)
+  end,
+}
+
+return M

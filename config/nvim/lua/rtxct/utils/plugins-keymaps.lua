@@ -16,9 +16,6 @@ local M = {
 -- Close buffer
   c = { "<cmd>bdelete<CR>", "Close current buffer", opts },
 
-  -- SnipRun
-  q = { "<Plug>SnipRun", "Run snip", opts },
-
 -- Plugins management
   m = {
     name = "Managers",
@@ -33,6 +30,9 @@ local M = {
 
     -- Treesitter
     t = { "<cmd>TSUpdate<CR>", "TS update", opts },
+
+    -- Reload Buffer
+    e = { "<cmd>e!<CR>", "Reload Buffer", opts },
 
     -- Lazy
     l = { "<cmd>Lazy<CR>", "Lazy manager", opts },
@@ -87,6 +87,7 @@ local M = {
     k = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Impl Hover", opts },
     i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation", opts },
     l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostics", opts },
+    x = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Variable", opts },
   },
 
 -- Formatting

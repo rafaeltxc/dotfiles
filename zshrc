@@ -8,13 +8,9 @@
 # Custom functions
 source ~/.config/zsh/functions.zsh
 
-# Definitions
-source ~/.config/zsh/definitions.zsh
-
 # Enable colors and change prompt
 autoload -U colors && colors
-PS1='%B%F{cyan}%(4~|...|) %3~%F{cyan}$(branch=$(git_branch_name) && [ -n "$branch" ] && echo " %F{white}-> ${bold_cyan}$branch${white}") %F{white}
- > %b%f%k'
+PS1='%B%F{cyan}%(4~|...|) %3~%F{cyan}$(branch=$(git_branch_name) && [ -n "$branch" ] && echo " %F{white}${bold_cyan}$branch${white}") %F{white}> %b%f%k'
 
 # Enable substitution in the prompt.
 setopt prompt_subst
@@ -98,8 +94,15 @@ source ~/.config/zsh/keysets.zsh
 export FZF_DEFAULT_OPTS='--color=bg+:-1,bg:-1,border:#FFFFFF,spinner:#6ec2b3,hl:#6ec2b3,fg:#FFFFFF,header:#6ec2b3,info:#FFFFFF,pointer:#6ec2b3,marker:#6ec2b3,fg+:-1,preview-bg:-1,prompt:#FFFFFF,hl+:#6ec2b3,gutter:-1'
 export MASON=${HOME}/.local/share/nvim/mason
 
+# Set up Node Version Manager (NVM)
+source /usr/share/nvm/init-nvm.sh
+
 # Manual source (must be last)
 # source ${SOURCE_PL}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ${SOURCE_PL}/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ${SOURCE_PL}/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # source ${SOURCE_PL}/fzf-tab/fzf-tab.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

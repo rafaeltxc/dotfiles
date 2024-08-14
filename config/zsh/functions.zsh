@@ -6,7 +6,7 @@ function git_branch_name()
     then
         :
     else
-        echo '- ('$branch')'
+        echo '- '$branch''
     fi
 }
 
@@ -32,45 +32,31 @@ fuzzy () {
     fi
 }
 
+# CHange java version
+jv () {
+  if [ $# -eq 0 ]; then
+      echo "No version supplied"
+      return
+  fi
+
+  version="$1"
+  sudo archlinux-java set "java-$version-openjdk"
+}
+
+# wf-recorder
+# rec {
+#     read -p "1. No audio\nWith audio\n" choice
+
+#     if [ "$choice" = "1" ]; then
+#         wf-recorder --file=~/Pictures/recording.mp4 -g "$(slurp)"
+#     else
+#         wf-recorder --audio --file=~/Pictures/recording.mp4 -g "$(slurp)"
+#     fi
+# }
+
 # Activate Venv
 venv () {
   source ./"$1"/bin/activate;
-}
-
-# Create new java project
-java_p () {
-    echo -n "Select project location (\".\" to create project in the same directory): ";
-    read LOCATION;
-    if [ $LOCATION != "." ]; then
-        cd $LOCATION;
-    fi
-
-    echo -n "Name of the project: ";
-    read NAME;
-    mkdir $NAME;
-
-    mkdir $NAME/src;
-    echo "module $NAME {}" >> $NAME/src/module-info.java;
-
-    BUILD="<project default=\"compile\">\n  <target name=\"compile\">\n   <mkdir dir=\"bin\"/>\n   <javac srcdir=\"src\" destdir=\"bin\"/>\n  </target>\n</project>";
-    printf $BUILD >> $NAME/build.xml;
-
-    mkdir $NAME/classpath;
-    echo "Project \"$NAME\" has been created.";
-}
-
-# Create new maven project
-mvn_project () {
-    if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-        echo "Usage: mvn_project 'group' 'name'"
-        return
-    fi
-
-    if [ "$1" != "" ] && [ "$2" != "" ]; then
-        mvn archetype:generate -DgroupId=$1 -DartifactId=$2 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
-    else
-        echo "Missing some of the arguments:\n1 - GroupId\n2 - ArtifactId";
-    fi
 }
 
 # Commit to github

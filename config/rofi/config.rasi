@@ -3,31 +3,37 @@ configuration {
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
   font: "JetBrainsMono Nerd Font Medium 10";
-  modi: "window,run,drun,calc";
+  modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Papirus";
 }
 
-@theme "/dev/null"
+@theme "/usr/share/rofi/themes/docu.rasi"
 
 * {
-  bg: #1c1c1c66;
+  bg: #1c1c1c;
   bg-alt: #2c2c2c66;
   bg-selected: #3c3c3c66;
+  border-color: #a1a1a166;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
-
   
   border: 0;
-  margin: 0;
+  margin: 10;
   padding: 0;
   spacing: 0;
 }
 
 window {
-  width: 20%;
+  width: 100%;
+  height: 100%;
   background-color: @bg;
+  fullscreen:       false;
+  border-radius:    20;
+  // border:           none;
+  // padding:          0 0 10px 0;
+  // border-color:     #ffffff;
 }
 
 element {
@@ -48,7 +54,7 @@ element-text {
 }
 
 element-icon {
-  size: 14;
+  size: 50;
   padding: 0 10 0 0;
   background-color: transparent;
 }
@@ -66,7 +72,7 @@ inputbar {
 
 listview {
   background-color: @bg;
-  columns: 1;
+  columns: 4;
   lines: 10;
 }
 
@@ -77,7 +83,7 @@ mainbox {
 
 prompt {
   enabled: true;
-  padding: 12 0 0 12;
+  padding: 17 15 0 15;
   background-color: @bg-alt;
   text-color: @fg;
 }

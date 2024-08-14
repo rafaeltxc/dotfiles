@@ -66,7 +66,7 @@ keymap("i", "<C-H>", "<C-W>", opts)
 -- keymap("n", "<leader>wh", "<cmd>sp<CR>", opts)
 
 -- SnipRun
-keymap("v", "q", "<Plug>SnipRun", opts)
+keymap("v", "z", "<Plug>SnipRun", opts)
 
 -- Cmdline
 keymap('n', ':', '<cmd>FineCmdline<CR>', opts)

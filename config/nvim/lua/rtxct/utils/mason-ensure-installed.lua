@@ -1,21 +1,23 @@
 local M = {
+  -- Languages
+  "gopls",
+  "lua_ls",
   "html",
   "cssls",
   "cssmodules_ls",
-  "lua_ls",
-  "clangd",
   "tsserver",
   "jdtls",
-  "groovyls",
   "bashls",
+
+  -- Utils
+  "jsonls",
+  "sqlls",
   "dockerls",
   "docker_compose_language_service",
-  "sqlls",
-  "jsonls",
-  "lemminx",
   "yamlls",
-  "eslint",
-  "pylsp",
+
+  -- Linters
+  "eslint"
 }
 
 return M

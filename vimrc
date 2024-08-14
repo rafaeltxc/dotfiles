@@ -1,6 +1,6 @@
 " Options
 set cmdheight=1
-set clipboard=unnamedplus " Gvim needed to use the system clipboard (vim does not work with X11).
+set clipboard=unnamedplus " Gvim needed to use the system clipboard in case of x11.
 set encoding=utf-8
 set hlsearch
 set ignorecase
@@ -86,6 +86,10 @@ colorscheme nord
 " ---------- REMAPS ----------
 " Set the leader key
 let g:mapleader = " "
+
+" Remap to clipboard
+autocmd TextYankPost * if (v:event.operator == 'y' || v:event.operator == 'd') | silent! execute 'call system("wl-copy", @")' | endif
+nnoremap p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
 
 " Execute current file
 nnoremap <leader>e :!%:p
