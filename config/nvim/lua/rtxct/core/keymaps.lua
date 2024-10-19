@@ -6,6 +6,10 @@ vim.g.maplocalleader = " "
 
 -- Options set function
 local opts = { noremap = true, silent = true }
+local opts_no_silent = { noremap = true }
+
+-- Show number of matches on search
+keymap('n', '/', ':Match ', opts_no_silent)
 
 -- Normal --
 -- Better window navigation

@@ -1,109 +1,88 @@
 -- Set all plugins keymaps to be used at plugins/whichkey.lua.
 
-local opts = { noremap = true, silent = true }
-
 local M = {
--- Noh
-  r = { "<cmd>noh<CR>", "Clear filter" },
+  { "<leader>c", "<cmd>bdelete<CR>", desc = "Close buffer" },
+  { "<leader>f", "<cmd>Carbon<CR>", desc = "File explorer" },
+  { "<leader>e", "<cmd>e!<CR>", desc = "Reload" },
 
--- New Workspace
-  w = {
-    name = "New workspace",
-    v = { "<cmd>vsp<CR>", "Vertical Window", opts },
-    h = { "<cmd>sp<CR>", "Horizontal Window", opts },
-  },
+  { "<leader>g", group = "LSP" },
+  { "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", desc = "Declaration" },
+  { "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", desc = "Definition" },
+  { "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", desc = "Implementation" },
+  { "<leader>gk", "<cmd>lua vim.lsp.buf.hover()<CR>", desc = "Impl Hover" },
+  { "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>", desc = "Diagnostics" },
+  { "<leader>gr", function() require("trouble").toggle("lsp_references") end, desc = "References" },
+  { "<leader>gx", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename Variable" },
 
--- Close buffer
-  c = { "<cmd>bdelete<CR>", "Close current buffer", opts },
+  { "<leader>h", group = "Git" },
+  { "<leader>ha", function() require("gitsigns").diffthis('~') end, desc = "Diff" },
+  { "<leader>hb", function() require("gitsigns").blame_line{ full=true } end, desc = "Blame" },
+  { "<leader>hd", "<cmd>Gitsigns toggle_deleted<CR>", desc = "Deleted" },
 
--- Plugins management
-  m = {
-    name = "Managers",
+  { "<leader>i", group = "Informative" },
+  { "<leader>ii", "<cmd>LspInfo<cr>", desc = "LSP info" },
+  { "<leader>ij", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", desc = "Next diagnostic" },
+  { "<leader>ik", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", desc = "Previous diagnostic" },
+  { "<leader>il", "<cmd>NullLsInfo<cr>", desc = "NullLs info" },
+  { "<leader>is", "<cmd>SnipInfo<CR>", desc = "Snip info" },
 
-    -- Mason
-    m = {
-      name = "Mason",
-      m = { "<cmd>Mason<CR>", "Mason manager", opts },
-      u = { "<cmd>MasonUpdate<CR>", "Mason udate", opts },
-      l = { "<cmd>MasonLog<CR>", "Mason logs", opts },
-    },
+  { "<leader>m", group = "Managers" },
+  { "<leader>ml", "<cmd>Lazy<CR>", desc = "Lazy manager" },
 
-    -- Treesitter
-    t = { "<cmd>TSUpdate<CR>", "TS update", opts },
+  { "<leader>mm", group = "Mason" },
+  { "<leader>mml", "<cmd>MasonLog<CR>", desc = "Mason logs" },
+  { "<leader>mmm", "<cmd>Mason<CR>", desc = "Mason manager" },
+  { "<leader>mmu", "<cmd>MasonUpdate<CR>", desc = "Mason udate" },
+  { "<leader>mt", "<cmd>TSUpdate<CR>", desc = "TS update" },
 
-    -- Reload Buffer
-    e = { "<cmd>e!<CR>", "Reload Buffer", opts },
+  { "<leader>q", group = "Neotest" },
+  { "<leader>qd", '<esc><cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', desc = "Debug nearest" },
+  { "<leader>qf", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', desc = "Test file" },
+  { "<leader>qn", '<esc><cmd>lua require("neotest").run.run()<CR>', desc = "Test nearest" },
+  { "<leader>qs", '<cmd>lua require("neotest").run.stop()<CR>', desc = "Stop test" },
+  { "<leader>r", "<cmd>noh<CR>", desc = "Clear filter" },
 
-    -- Lazy
-    l = { "<cmd>Lazy<CR>", "Lazy manager", opts },
-  },
+  { "<leader>s", group = "Spectre" },
+  { "<leader>sf", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', desc = "File search" },
+  { "<leader>ss", '<cmd>lua require("spectre").toggle()<CR>', desc = "Toggle Spectre" },
+  { "<leader>sv", '<esc><cmd>lua require("spectre").open_visual()<CR>', desc = "Open visual" },
 
-  -- Carbon Tree
-  f = { "<cmd>Carbon<CR>", "File explorer", opts },
+  { "<leader>t", group = "Telescope" },
+  { "<leader>tb", "<cmd>Telescope buffers<cr>", desc = "Active buffers" },
+  { "<leader>tc", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Current Buffer" },
+  { "<leader>te", "<cmd>Telescope env<cr>", desc = "System env" },
+  { "<leader>tf", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+  { "<leader>tl", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+  { "<leader>tt", "<cmd>Telescope<CR>", desc = "Telescope" },
 
--- Telescope
-  t = {
-    name = "Telescope",
-    t = { "<cmd>Telescope<CR>", "Telescope", opts },
-    f = { "<cmd>Telescope find_files<CR>", "Find files", opts },
-    c = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Current Buffer", opts },
-    l = { "<cmd>Telescope live_grep<cr>", "Live grep", opts },
-    b = { "<cmd>Telescope buffers<cr>", "Active buffers", opts },
-    e = { "<cmd>Telescope env<cr>", "System env", opts },
-  },
+  { "<leader>w", group = "New workspace" },
+  { "<leader>wh", "<cmd>sp<CR>", desc = "Horizontal Window" },
+  { "<leader>wv", "<cmd>vsp<CR>", desc = "Vertical Window" },
 
--- Spectre
-  s = {
-    name = "Spectre",
-    s = { "<cmd>lua require(\"spectre\").toggle()<CR>", "Toggle Spectre", opts },
-    v = { "<esc><cmd>lua require(\"spectre\").open_visual()<CR>", "Open visual", opts },
-    f = { "<cmd>lua require(\"spectre\").open_file_search({select_word=true})<CR>", "File search", opts },
-  },
+  { "<leader>x", group = "Troubles" },
+  { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document" },
+  { "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Loclist" },
+  { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix" },
+  { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Wokspace" },
+  { "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Troubles" },
 
--- Trouble
-  x = {
-    name = "Troubles",
-    x = { "<cmd>TroubleToggle<cr>", "Troubles", opts },
-    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Wokspace", opts },
-    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document", opts },
-    q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix", opts },
-    l = { "<cmd>TroubleToggle loclist<cr>", "Loclist", opts },
-  },
+  { "<leader>\\", group = "Colors" },
+  { "<leader>\\ba", function()
+      require('github-theme').setup(require("rtxct.plugins.colorscheme.opts.opts-light"))
 
--- Harpoon
-  --[[ h = {
-    name = "Harpoon",
-    h = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Toggle Harpoon" },
-    a = { function() harpoon:list():append() end, "Add to list" },
-    p = { function() harpoon:list():prepend() end, "Prepend from list" },
-  }, ]]
+      -- reloading
+      local current_bg = vim.g.colors_name
+      vim.cmd("colorscheme " .. current_bg)
+    end, desc = "Bg activate" },
+  { "<leader>\\bd", function()
+      require('github-theme').setup(require("rtxct.plugins.colorscheme.opts.opts-dark"))
 
--- LSP
-  g = {
-    name = "LSP",
-    D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration", opts },
-    d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Definition", opts },
-    r = { function() require("trouble").toggle("lsp_references") end, "References", opts },
-    k = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Impl Hover", opts },
-    i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Implementation", opts },
-    l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Diagnostics", opts },
-    x = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename Variable", opts },
-  },
-
--- Formatting
-  i = {
-    name = "Informative",
-    i = { "<cmd>LspInfo<cr>", "LSP info", opts },
-    l = { "<cmd>NullLsInfo<cr>", "NullLs info", opts },
-    s = { "<cmd>SnipInfo<CR>", "Snip info" },
-    j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", "Next diagnostic", opts },
-    k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", "Previous diagnostic", opts },
-  },
-
-  h = {
-    d = { "<cmd>Gitsigns diffthis<CR>", "Git diff" },
-    x = { "<cmd>Gitsigns toggle_deleted<CR>", "Deleted chunk" }
-  }
+      -- reloading
+      local current_bg = vim.g.colors_name
+      vim.cmd("colorscheme " .. current_bg)
+    end, desc = "Bg deactivate" },
+  { "<leader>\\l", "<cmd>colorscheme github_light<cr>", desc = "Light theme" },
+  { "<leader>\\d", "<cmd>colorscheme github_dark_default<cr>", desc = "Dark theme" },
 }
 
 return M

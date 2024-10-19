@@ -1,33 +1,40 @@
 local M = {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "echasnovski/mini.icons"
+  },
   opts = {
-    popup_mappings = {
+    preset = "modern",
+    keys = {
       scroll_down = "<c-d>",
       scroll_up = "<c-u>",
+    },
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
     },
     icons = {
       breadcrumb = "»",
       separator = "➜",
       group = "",
+      mappings = false,
     },
-    window = {
+    win = {
+      no_overlap = true,
       border = "rounded",
-      position = "bottom",
-      margin = { 0, 20, 5, 20 },
-      padding = { 0, 10, 0, 10 },
-      winblend = 0,
-      zindex = 1000,
+      width = 100,
+      height = 7,
+      padding = { 1, 1 },
     },
     layout = {
-      height = { min = 2, max = 5 },
-      width = { min = 10, max = 50 },
-      spacing = 3,
+      height = { min = 3, max = 5 },
+      width = { min = 1, max = 30 },
       align = "center",
+      spacing = 3,
     },
-    ignore_missing = true,
-    show_keys = false,
-    show_help = false,
+    show_keys = true,
+    show_help = true,
+    title = false,
   },
 
   config = function(_, opts)
@@ -35,7 +42,7 @@ local M = {
     local wk = require("which-key")
 
     wk.setup(opts)
-    wk.register(pk, { prefix = "<leader>" })
+    wk.add(pk)
   end
 }
 

@@ -1,8 +1,9 @@
 local M = {
     "williamboman/mason.nvim",
-    
+
     event = "VeryLazy",
     opts = {
+      PATH = "prepend",
       ui = {
         border = "rounded",
         width = 0.5,

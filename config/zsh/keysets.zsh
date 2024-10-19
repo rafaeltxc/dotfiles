@@ -1,12 +1,9 @@
 # Main
 alias vpn="sudo openvpn --config ~/Documents/Duxus/matrix_3-UDP4-1194-config.ovpn"
-alias catr="sudo /opt/tomcat/bin/startup-debug.sh"
-alias cats="sudo /opt/tomcat/bin/shutdown.sh"
-
+alias cats="sudo /opt/tomcat/bin/startup-debug.sh"
 
 # System defaults
 alias gp="grep"
-alias til="tail -500f"
 
 # Better listing
 alias ls="ls --color=auto"
@@ -38,3 +35,10 @@ alias rec='
 # Functions
 bindkey -s '^o' 'lfcd\n'
 bindkey -s '^F' 'fuzzy\n'
+
+# Lazy loading
+
+# Aliases for lazy loading
+node() { lazy_load_nvm; node "$@"; }
+npm() { lazy_load_nvm; npm "$@"; }
+nvm() { lazy_load_nvm; nvm "$@"; }

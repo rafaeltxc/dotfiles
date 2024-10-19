@@ -2,8 +2,11 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{icon} {name}";
+
   font: "JetBrainsMono Nerd Font Medium 10";
+
   modi: "window,run,drun";
+
   show-icons: true;
   icon-theme: "Papirus";
 }
@@ -11,34 +14,30 @@ configuration {
 @theme "/usr/share/rofi/themes/docu.rasi"
 
 * {
-  bg: #1c1c1c;
-  bg-alt: #2c2c2c66;
-  bg-selected: #3c3c3c66;
-  border-color: #a1a1a166;
+  bg: transparent;
+  bg-alt: #2c2c2c;
+  bg-selected: #3c3c3c;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
   
   border: 0;
-  margin: 10;
-  padding: 0;
-  spacing: 0;
+  margin: 0;
+  padding: 0 5 0 5;
 }
 
 window {
-  width: 100%;
-  height: 100%;
+  margin: 300px 0 0 0;
+  width: 40%;
+  height: 75%;
   background-color: @bg;
-  fullscreen:       false;
-  border-radius:    20;
-  // border:           none;
-  // padding:          0 0 10px 0;
-  // border-color:     #ffffff;
+  border: none;
+  padding: 3;
 }
 
 element {
   padding: 8 12;
-  background-color: transparent;
+  background-color: #0c0c0c;
   text-color: @fg-alt;
 }
 
@@ -48,6 +47,7 @@ element selected {
 }
 
 element-text {
+  border: none;
   background-color: transparent;
   text-color: inherit;
   vertical-align: 0.5;
@@ -66,6 +66,7 @@ entry {
 }
 
 inputbar {
+  enabled: false;
   children: [prompt, entry];
   background-color: @bg;
 }
@@ -82,10 +83,7 @@ mainbox {
 }
 
 prompt {
-  enabled: true;
-  padding: 17 15 0 15;
-  background-color: @bg-alt;
-  text-color: @fg;
+  enabled: false;
 }
 
 /* vim: ft=sass

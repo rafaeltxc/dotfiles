@@ -5,7 +5,7 @@ local M = {
   "html",
   "cssls",
   "cssmodules_ls",
-  "tsserver",
+  "ts_ls",
   "jdtls",
   "bashls",
 
@@ -17,7 +17,7 @@ local M = {
   "yamlls",
 
   -- Linters
-  "eslint"
+  "eslint",
 }
 
 return M

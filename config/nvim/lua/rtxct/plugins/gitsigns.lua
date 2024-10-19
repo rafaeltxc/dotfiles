@@ -35,9 +35,6 @@ local M = {
 			row = 1,
 			col = 1,
 		},
-		yadm = {
-			enable = false,
-		},
 	},
 
 	config = function(_, opts)

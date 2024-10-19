@@ -1,6 +1,5 @@
 # Find and set branch name var if in git repository
-function git_branch_name()
-{
+function git_branch_name() {
     branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
     if [[ $branch == "" ]];
     then
@@ -21,6 +20,19 @@ lfcd () {
     fi
 }
 
+# Tail number of lines from a log file
+tll () {
+   if [[ "$1" =~ ^[0-9]+$ ]]; then
+      lines=${1}
+      file=${2}
+   else
+      lines=500
+      file=${1}
+   fi
+
+   sudo tail -"${lines}"f "${file}"
+}
+
 # fzf
 fuzzy () {
     VAR=$(find "$HOME" | fzf)
@@ -35,7 +47,7 @@ fuzzy () {
 # CHange java version
 jv () {
   if [ $# -eq 0 ]; then
-      echo "No version supplied"
+      echo "Current java version: $(java --version)"
       return
   fi
 
@@ -57,6 +69,13 @@ jv () {
 # Activate Venv
 venv () {
   source ./"$1"/bin/activate;
+}
+
+# Lazy load nvm (Takes excessive amount of time on runtime load)
+lazy_load_nvm() {
+  unset -f node npm nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/share/nvm/init-nvm.sh" ] && \. "/usr/share/nvm/init-nvm.sh"
 }
 
 # Commit to github

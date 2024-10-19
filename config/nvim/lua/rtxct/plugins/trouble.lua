@@ -6,7 +6,6 @@ local M = {
       position = "bottom",
       height = 10,
       width = 50,
-      icons = true,
       severity = nil,
       fold_open = "",
       fold_closed = "",
