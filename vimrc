@@ -79,11 +79,9 @@ Plug 'vim-test/vim-test' " Testing plugin
 
 call plug#end()
 
-" ---------- COLORSCHEMES ----------
 " colorscheme mac_classic
 colorscheme nord
 
-" ---------- REMAPS ----------
 " Set the leader key
 let g:mapleader = " "
 
@@ -147,11 +145,6 @@ nnoremap <leader>wh :sp<CR>
 
 " Open terminal
 nnoremap <C-t> :term<CR>
-
-" ---------- PLUGINS CONFIGURATION ----------
-" File explorer (NerdTree)
-" nnoremap <leader>f :NERDTreeFind<CR>
-" nnoremap <leader>f :NERDTreeToggle<CR>
 
 " Reload NERDTree on every call
 function! ReloadNERDTree()
@@ -274,7 +267,6 @@ nmap <silent> <leader>qs :TestSuite<CR>
 nmap <silent> <leader>ql :TestLast<CR>
 nmap <silent> <leader>qv :TestVisit<CR>
 
-"  ---------- FUNCTIONS ----------
 " Show current file name on status line if cursor is not moving
 function! ShowCursorInfo()
     let branch_info = FugitiveStatusline()
