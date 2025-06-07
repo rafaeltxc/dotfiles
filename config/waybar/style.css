@@ -3,6 +3,10 @@
     font-size: 18px;
 }
 
+/* #mode { */
+/*     background-color: transparent; */
+/* } */
+
 window#waybar {
     background-color: rgba(12, 12, 12, 0.5);
     color: #ffffff;
@@ -54,10 +58,6 @@ button:hover {
     border-radius: 25px;
 }
 
-/* #mode { */
-/*     background-color: transparent; */
-/* } */
-
 #clock,
 #battery,
 #cpu,
@@ -99,12 +99,12 @@ button:hover {
 
 #battery {
     background-color: transparent;
-    color: #21c236;
+    color: #A3BE8C;
 }
 
 #battery.charging, #battery.plugged {
     background-color: transparent;
-    color: #23c3db;
+    color: #81A1C1;
 }
 
 @keyframes blink {
@@ -117,7 +117,7 @@ button:hover {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: transparent;
-    color: #c91414;
+    color: #BF616A;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -136,12 +136,12 @@ button:hover {
 
 #power-profiles-daemon.balanced {
     background-color: transparent;
-    color: #2980b9;
+    color: #81A1C1;
 }
 
 #power-profiles-daemon.power-saver {
     background-color: transparent;
-    color: #2ecc71;
+    color: #A3BE8C;
 }
 
 label:focus {

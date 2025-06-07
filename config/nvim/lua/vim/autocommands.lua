@@ -28,11 +28,11 @@ create_autocmd("BufWinEnter", {
 })
 
 -- Remove whitespaces on save
-create_autocmd("BufWritePre", {
-    desc = "remove whitespaces on save",
-    pattern = "*",
-    command = "%s/\\s\\+$//e",
-})
+-- create_autocmd("BufWritePre", {
+--     desc = "remove whitespaces on save",
+--     pattern = "*",
+--     command = "%s/\\s\\+$//e",
+-- })
 
 -- Prevent auto-commenting on a new line
 -- create_autocmd({ "BufEnter", "FileType" }, {

@@ -1,5 +1,5 @@
-import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Campbell.toml"
+general.import = [
+  "./theme.toml"
 ]
 
 [colors]
@@ -10,7 +10,7 @@ blinking = "Off"
 shape = "Block"
 
 [font]
-size = 20
+size = 16
 
   [font.bold]
   family = "JetBrainsMono Nerd Font"
@@ -32,7 +32,7 @@ size = 20
 history = 10_000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]

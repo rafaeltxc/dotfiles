@@ -21,6 +21,7 @@ local M = {
 
                 -- formatting.shfmt,
                 formatting.stylua,
+                formatting.djlint,
                 formatting.google_java_format,
                 formatting.sql_formatter,
                 formatting.yamlfmt,
